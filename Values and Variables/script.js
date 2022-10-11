@@ -16,3 +16,12 @@ let myFirstJob = 'System Engineer Trainee';
 let myCurrentJob = 'Programmer Analyst';
 
 console.log(myCurrentJob);
+
+//Exercise
+let country = 'India';
+let continent = 'Asia';
+let population = '1,405.22 millions';
+
+console.log('I live in ' + country);
+console.log(country + " is in which continent? -> " + continent);
+console.log("The population of " + country + " by 2022 is " + population);
