@@ -1,3 +1,5 @@
+// DATA TYPES IN JAVASCRIPT ->
+
 // 1.Number
 let age = 23;
 
