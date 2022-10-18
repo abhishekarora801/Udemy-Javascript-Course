@@ -34,7 +34,7 @@ if (fav1 !== 12) console.log("not 12"); // not equal to
 console.log(`---------------------------------------------------`)
 //Exercise
 
-const numNeighbours = Number(prompt('How many neighour countries does your country have?')); //this stores as string.
+const numNeighbours = Number(prompt('How many neighour countries does your country have?')); //this stores as number.
 
 if (numNeighbours === 1) {
     console.log(`Only 1 border`);
