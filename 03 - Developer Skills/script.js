@@ -65,7 +65,7 @@ const measureKelvin = function () {
   return kelvin;
 };
 
-// console.log(measureKelvin());
+console.log(measureKelvin());
 
 //using a debugger
 const calcTempAmplitudeBug = function (t1, t2) {
