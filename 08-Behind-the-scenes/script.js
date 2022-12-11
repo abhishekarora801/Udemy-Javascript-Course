@@ -72,3 +72,50 @@ const z = 3;
 console.log(x === window.x);
 console.log(y === window.y);
 console.log(z === window.z);
+
+//Understanding the 'this' keyword
+
+const jonas = {
+  newName: 'Abhi',
+  newYear: '1989',
+  calcAge1: function () {
+    return 2037 - this.newYear;
+  },
+};
+console.log(jonas.calcAge1());
+console.log(jonas.newName);
+
+//this keyword practice
+console.log(this);
+
+const calcAge2 = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this);
+};
+calcAge2(1991);
+
+const calcAge2Arrow = (birthYear) => {
+  console.log(2037 - birthYear);
+  console.log(this); //this keyword is window object in arrow function! => Lexical this keyword, that means using from parent scope!
+};
+
+calcAge2Arrow(1980);
+
+const abhishek = {
+  bYear: 1991,
+  calcAge5: function () {
+    console.log(this); //this keyword will be the abhishek object
+  },
+};
+abhishek.calcAge5();
+
+const matilda = {
+  year2: 2017,
+};
+
+matilda.calcAge10 = jonas.calcAge1; //borrowed the function!
+console.log(matilda);
+matilda.calcAge10();
+
+const f = jonas.calcAge1;
+f();
