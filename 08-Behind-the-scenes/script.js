@@ -118,4 +118,4 @@ console.log(matilda);
 matilda.calcAge10();
 
 const f = jonas.calcAge1;
-f();
+f(); // only work when 'use strict' was not set!
