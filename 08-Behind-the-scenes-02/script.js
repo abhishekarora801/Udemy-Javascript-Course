@@ -40,7 +40,7 @@ const addExpr = function (a, b) {
   return a + b;
 };
 addExpr(2, 5);
-addExpr(2, 5, 8, 12); //arguments exist in arrow fn.
+addExpr(2, 5, 8, 12); //arguments exist in normal fn.
 
 var addArrow = (a, b) => {
   console.log(arguments);
