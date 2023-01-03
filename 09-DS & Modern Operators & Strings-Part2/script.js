@@ -19,6 +19,11 @@ const restaurant = {
     console.log(`Here is your pasta with
     ${ing1}, ${ing2} and ${ing3}`);
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
   orderDelivery: function ({
     starterIndex = 1,
     mainIndex = 0,
@@ -112,3 +117,57 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Sagar Ratna';
 console.log(restaurant.name, restaurantCopy.name);
 // We did made a copy, and both names above are not the same! #Imp
+
+console.log(`***********************************************`);
+
+//Rest pattern and parameters
+//It Pack elements in array:
+
+// 1. Destructuring
+
+//SPREAD, because on RIGHT SIDE of =
+const arr123 = [1, 2, ...[3, 4]];
+
+//REST, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+//Output: 1 2 (3) [3, 4, 5]
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+// Output:
+// Pizza Risotto (4) ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad']
+//REST ELEMENT MUST BE THE LAST.
+//AND THERE MUST BE ONE REST ELEMENT ONLY.
+
+//OBJECTS:
+const { sat, ...weekDays } = restaurant.openingHours;
+console.log(weekDays);
+console.log(sat);
+
+//2. Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+//REST, packs all these numbers into arrays!!!
+
+const x = [23, 5, 7];
+add(...x);
+//will give the output as the sum = 35
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+//O/P:
+//mushrooms
+//(3) ['onion', 'olives', 'spinach']
+
+restaurant.orderPizza('mushrooms');
