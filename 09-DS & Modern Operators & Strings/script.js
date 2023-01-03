@@ -15,6 +15,16 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(`Order received! ${this.starterMenu[starterIndex]}
+    and ${this.mainMenu[mainIndex]} will be delivered
+    to ${address} at ${time}`);
+  },
   openingHours: {
     thu: {
       open: 12,
@@ -61,3 +71,59 @@ console.log(i, j, k);
 //Setting default values
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r); //getting r=1 as the default value!
+
+console.log('********************************************');
+//Destructure Objects
+
+//fetching values from restaurant object above!
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+//giving new varibale names to them!
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+//giving default value to variables.
+//if it doesn't exist, that value will be assigned.
+//if it exist, original value will be assigned.
+// we use : for assigning a new name,
+// and = for setting a default value.
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+// O/p: [] (4) ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad']
+
+//Mutating variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+({ a, b } = obj);
+// without paranthesis, it gives error,
+//as we are assigning object,
+//so we have to wrap them in paranthesis.
+console.log(a, b);
+
+//Nested objects --> changing to new name as well!
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
+
+//calling object in the fucntion above
+//passing an object
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+//Calling function to understand with default values given in function above
+restaurant.orderDelivery({
+  address: 'Via del Sole, 21',
+  starterIndex: 1,
+});
+//these names should match, what we are specifying in function
