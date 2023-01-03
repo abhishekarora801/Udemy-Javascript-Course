@@ -111,4 +111,4 @@ console.log(newRestaurant);
 const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Sagar Ratna';
 console.log(restaurant.name, restaurantCopy.name);
-// We did made a copy, and both are not the same! #Imp
+// We did made a copy, and both names above are not the same! #Imp
