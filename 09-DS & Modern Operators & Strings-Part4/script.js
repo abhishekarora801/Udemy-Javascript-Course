@@ -61,3 +61,43 @@ console.log(guests);
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
 //Output is 0, by using the nullish coalescing operator
+
+console.log(`**** Logical Assignment operator ****`);
+const rest1 = {
+  name: 'Capri',
+  numGuests: 20,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Abhishek',
+};
+
+rest1.numGuests = rest1.numGuests || 10;
+rest2.numGuests = rest2.numGuests || 10;
+
+console.log(rest1);
+console.log(rest2);
+
+console.log(`**** OR Assignment operator ****`);
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 10;
+console.log(rest1);
+console.log(rest2);
+
+console.log(`**** AND Assignment operator ****`);
+
+rest2.owner = rest2.owner && '<ANONYMOUS>';
+console.log(rest2);
+//O/p -> {name: 'La Piazza', owner: '<ANONYMOUS>', numGuests: 10}
+//Second value will be evaluated
+
+rest1.owner = rest1.owner && '<ANONYMOUS>';
+console.log(rest1);
+//First value is falsy, and returns it.
+
+console.log(`********************`);
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+console.log(rest1);
+console.log(rest2);
